@@ -1,34 +1,23 @@
----
-title: "Diabetis Prediction"
-author: "Emmanuel Fagbenle"
-date: "2025-06-23"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Diabetes Risk Prediction
 
-### Model Type: XGBoost Multiclass Classifier 
+## Model Type: XGBoost Multiclass Classifier 
 
-### Author: Emmanuel Fagbenle
+## Author: Emmanuel Fagbenle
 
-#### What It Does:
+## What It Does:
 
 This model predicts an individual’s diabetes status. No diabetes (0), prediabetes (1), or diabetes (2) using self-reported health data. It was trained on the 2015 CDC BRFSS dataset and focuses on 8 key features like blood pressure, BMI, and general health.
 
-#### Data Source:
+## Data Source:
 
 The data comes from the Behavioral Risk Factor Surveillance System (BRFSS 2015), a large U.S. health survey. Each row represents a unique adult respondent with 21 health and lifestyle features.
 
-#### Methodology:
+## Methodology:
 
 We chose XGBoost for its high accuracy, speed, and ability to model nonlinear relationships in multiclass classification tasks. The model was trained on 80% of the data and evaluated on the remaining 20%.
 
 To enhance interpretability, we extracted the top 8 features driving predictions. These included: HighBP, GenHlth, BMI, Age, HighChol, Income, HeartDiseaseorAttack, and PhysHlth.
 
-#### Use Cases
+## Use Cases
 
 Public Health Agencies: Early identification of high-risk groups to improve outreach and preventive care. Healthcare Providers: Decision support tool for clinicians during routine screenings. Researchers: Feature importance analysis for academic and policy insights.
