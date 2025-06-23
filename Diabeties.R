@@ -58,22 +58,22 @@ confusionMatrix(factor(pred_labels), factor(test_label))
 # Get feature importance
 importance <- xgb.importance(feature_names = colnames(train_matrix), model = xgb_model)
 
-# Select top 8 features
-top8_features <- importance$Feature[1:8]
-print(top8_features)
+# Select top 7 features
+top7_features <- importance$Feature[1:7]
+print(top7_features)
 
 
 
 
 # Create new dataset with only top 8 features and target
-df_top8 <- df %>%
-  select(Diabetes_012, all_of(top8_features))
+df_top7 <- df %>%
+  select(Diabetes_012, all_of(top7_features))
 
 # Redo train-test split
 set.seed(123)
-trainIndex <- createDataPartition(df_top8$Diabetes_012, p = 0.8, list = FALSE)
-train_data <- df_top8[trainIndex, ]
-test_data <- df_top8[-trainIndex, ]
+trainIndex <- createDataPartition(df_top7$Diabetes_012, p = 0.8, list = FALSE)
+train_data <- df_top7[trainIndex, ]
+test_data <- df_top7[-trainIndex, ]
 
 train_label <- as.numeric(train_data$Diabetes_012) - 1
 test_label <- as.numeric(test_data$Diabetes_012) - 1
@@ -82,7 +82,7 @@ train_matrix <- sparse.model.matrix(Diabetes_012 ~ . - 1, data = train_data)
 test_matrix <- sparse.model.matrix(Diabetes_012 ~ . - 1, data = test_data)
 
 # Re-train model
-xgb_model_top8 <- xgboost(
+xgb_model_top7 <- xgboost(
   data = train_matrix,
   label = train_label,
   objective = "multi:softprob",
@@ -95,7 +95,7 @@ xgb_model_top8 <- xgboost(
 )
 
 # Evaluate
-pred_probs <- predict(xgb_model_top8, test_matrix)
+pred_probs <- predict(xgb_model_top7, test_matrix)
 pred_labels <- max.col(matrix(pred_probs, ncol = 3, byrow = TRUE)) - 1
 
 confusionMatrix(factor(pred_labels), factor(test_label))
