@@ -14,7 +14,7 @@ This project develops and benchmarks **two gradient-boosted tree models** that c
 
 | Class | Meaning                                |
 |-------|----------------------------------------|
-| **0** | No diabetes (or only during pregnancy) |
+| **0** | No diabetes  |
 | **1** | Prediabetes                            |
 | **2** | Diabetes                               |
 
