@@ -45,8 +45,8 @@ Both models were trained on **80%** of the data and validated on the remaining *
 
 | Model    | Accuracy   |
 |----------|------------|
-| XGBoost  | **0.8491** |
-| CatBoost | **0.8494** |
+| XGBoost  | **0.9591** |
+| CatBoost | **0.9494** |
 
 CatBoost delivered a marginal improvement (+0.03%) while retaining similar interpretability through built-in feature importance.
 
