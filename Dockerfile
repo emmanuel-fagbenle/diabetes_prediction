@@ -1,7 +1,7 @@
 FROM rocker/shiny:4.2.2
 
 # Install needed R packages
-RUN R -e "install.packages(c('shiny','xgboost','Matrix','dplyr'), repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages(c('shiny', 'xgboost','Matrix','dplyr'), repos='https://cloud.r-project.org/')"
 
 # Copy your app & model
 COPY app.R /app/app.R
