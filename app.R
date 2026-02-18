@@ -12,8 +12,8 @@ NUM_CLASS     <- 3
 # 2. Helper
 make_design <- function(df_raw, feat) {
   df <- df_raw %>% mutate(
-    Age     = factor(Age,     levels = 1:13),
-    GenHlth = factor(GenHlth, levels = 1:5),
+    Age     = factor(Age,     levels = 1:12),
+    GenHlth = factor(GenHlth, levels = 1:4),
     Income  = factor(Income,  levels = 1:8)
   )
   mat <- sparse.model.matrix(Diabetes_012 ~ . - 1, data = df)
